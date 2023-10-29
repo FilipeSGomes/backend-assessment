@@ -15,3 +15,4 @@ O dono de uma empresa estava montado sua loja ecommerce para alavancar seus neg�
   "cpf_documento": "000000000000",
   "telefone_contato_pessoa": "4565"
   }`
+- Será necessário fazer uma cópia do projeto para seu Github e deixa-lo como privado. Liberar apenas para o usuário tiagobmarques.
