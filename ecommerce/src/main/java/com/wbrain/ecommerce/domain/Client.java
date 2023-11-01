@@ -1,4 +1,4 @@
-package com.wbrain.ecommerce;
+package com.wbrain.ecommerce.domain;
 
 public class ClientSalva {
 
