@@ -1,30 +1,16 @@
 package com.wbrain.ecommerce;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
-@RestController
-@RequestMapping("/cliente")
+@OpenAPIDefinition(info = @Info(title = "Ecommerce", version = "1", description = "Cadastro de clientes, notas e relatorios"))
 public class EcommerceApplication {
 
-	private List<ClientSalva> clientes = new ArrayList<>();
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceApplication.class, args);
 	}
 
-	@PostMapping
-	public String adicionacliente(@RequestBody ClientSalva clienteSalva) {
-		clientes.add(clienteSalva);
-		return "Consegui salvar";
-	}
-
-	@GetMapping
-	public List<ClientSalva> pegaTodosClientes() {
-		return clientes;
-	}
 }
