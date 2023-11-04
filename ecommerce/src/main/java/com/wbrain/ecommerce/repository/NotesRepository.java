@@ -12,6 +12,6 @@ public interface NotesRepository extends JpaRepository<Notes, Integer> {
 
     List<Notes> findAllNotesByClientId(Integer codeClient);
 
-    List<Notes> findByDataBetween(LocalDate start, LocalDate end);
+    List<Notes> findAllNotesByDataBetween(LocalDate start, LocalDate end);
 
 }

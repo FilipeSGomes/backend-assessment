@@ -45,7 +45,7 @@ public class ReportServiceImpl implements ReportService {
             return null;
         }
         return ReportMonthResponse.builder()
-                .month(start)
+                .month(start.getMonth().toString())
                 .amount(mapper.map(notes).getAmount())
                 .build();
     }

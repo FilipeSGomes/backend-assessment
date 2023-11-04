@@ -72,7 +72,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<Notes> findAllNotesByDataBetween(LocalDate start, LocalDate end) {
-        return repository.findByDataBetween(start,end);
+        return repository.findAllNotesByDataBetween(start,end);
     }
 
 
