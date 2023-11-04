@@ -1,7 +1,7 @@
 package com.wbrain.ecommerce.services.impl;
 
 import com.wbrain.ecommerce.domain.Notes;
-import com.wbrain.ecommerce.mapper.NotesMapper;
+import com.wbrain.ecommerce.mapper.ReportsMapper;
 import com.wbrain.ecommerce.response.ReportMonthResponse;
 import com.wbrain.ecommerce.response.ReportNotesResponse;
 import com.wbrain.ecommerce.services.ClientService;
@@ -21,7 +21,7 @@ public class ReportServiceImpl implements ReportService {
     @Autowired
     ClientService clientService;
     @Autowired
-    NotesMapper mapper;
+    ReportsMapper mapper;
 
     @Override
     public ReportNotesResponse reportNotesByClient(Integer codeClient) {
