@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,6 +68,14 @@ public class NoteServiceImpl implements NoteService {
     public List<Notes> findAllNotesByClientId(Integer codeClient) {
         return repository.findAllNotesByClientId(codeClient);
     }
+
+
+    @Override
+    public List<Notes> findAllNotesByDataBetween(LocalDate start, LocalDate end) {
+        return repository.findByDataBetween(start,end);
+    }
+
+
 
     @Transactional
     private Notes saveNote(Notes notes) {

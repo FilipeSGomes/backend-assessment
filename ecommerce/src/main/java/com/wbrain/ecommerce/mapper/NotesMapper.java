@@ -20,6 +20,9 @@ public class NotesMapper  {
     }
 
     public ReportNotesResponse map(List<Notes> notesList) {
+        if(notesList.isEmpty()){
+            return null;
+        }
         BigDecimal amount = notesList.stream()
                 .map(Notes::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

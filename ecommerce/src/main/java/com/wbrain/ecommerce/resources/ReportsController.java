@@ -29,9 +29,9 @@ public class ReportsController {
          return service.reportNotesByClient(codeClient);
     }
 
-    @GetMapping("/months")
+    @GetMapping("/months/{monthStart}/{monthEnd}")
     public ReportMonthResponse reportByMonths(@PathVariable LocalDate monthStart, @PathVariable LocalDate monthEnd){
-        return service.reportNotesByMonth(monthStart);
+        return service.reportNotesByMonth(monthStart, monthEnd);
     }
 
 }

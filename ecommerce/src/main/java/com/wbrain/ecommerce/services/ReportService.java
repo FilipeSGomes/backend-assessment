@@ -10,6 +10,6 @@ public interface ReportService {
 
     ReportNotesResponse reportNotesByClient(Integer codeClient);
     List<ReportNotesResponse> reportAllClients();
-    ReportMonthResponse reportNotesByMonth(LocalDate month);
+    ReportMonthResponse reportNotesByMonth(LocalDate start, LocalDate end);
 
 }

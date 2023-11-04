@@ -39,8 +39,15 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public ReportMonthResponse reportNotesByMonth(LocalDate month) {
-        return null;
+    public ReportMonthResponse reportNotesByMonth(LocalDate start, LocalDate end) {
+        List<Notes> notes = noteService.findAllNotesByDataBetween(start,end);
+        if(notes.isEmpty()){
+            return null;
+        }
+        return ReportMonthResponse.builder()
+                .month(start)
+                .amount(mapper.map(notes).getAmount())
+                .build();
     }
 
 }
