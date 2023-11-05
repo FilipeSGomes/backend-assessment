@@ -12,6 +12,7 @@ import java.util.Optional;
 @Service
 public class ClientServiceImpl implements ClientService {
 
+    private static final String NOT_FOUND_CLIENT = "Client not found";
     @Autowired
     ClientRepository repository;
 
@@ -32,6 +33,9 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteClientBycode(Integer code) {
+        if (findClientBycode(code).isEmpty()) {
+            throw new RuntimeException(NOT_FOUND_CLIENT);
+        }
         repository.deleteById(code);
     }
 }
