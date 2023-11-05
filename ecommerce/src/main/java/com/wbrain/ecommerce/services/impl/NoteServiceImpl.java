@@ -53,6 +53,10 @@ public class NoteServiceImpl implements NoteService {
         if (findNotesBycode(notes.getId()).isEmpty()) {
             throw new RuntimeException(NOT_FOUND_NOTE + notes);
         }
+        Optional<Client> client = clientService.findClientBycode(notes.getClient().getId());
+        if (client.isEmpty()) {
+            throw new RuntimeException(NOT_FOUND_NOTE_CLIENT + notes);
+        }
         return Optional.of(saveNote(notes));
     }
 
@@ -69,16 +73,14 @@ public class NoteServiceImpl implements NoteService {
         return repository.findAllNotesByClientId(codeClient);
     }
 
-
     @Override
     public List<Notes> findAllNotesByDataBetween(LocalDate start, LocalDate end) {
-        return repository.findAllNotesByDataBetween(start,end);
+        return repository.findAllNotesByDataBetween(start, end);
     }
-
-
 
     @Transactional
     private Notes saveNote(Notes notes) {
         return repository.save(notes);
     }
+
 }
