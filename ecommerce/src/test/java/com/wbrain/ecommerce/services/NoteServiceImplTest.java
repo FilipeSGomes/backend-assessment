@@ -99,6 +99,7 @@ public class NoteServiceImplTest {
     @Test
     public void alterShouldNoteSucess() {
         when(repository.findById(any())).thenReturn(Optional.ofNullable(notesList().get(0)));
+        when(clientService.findClientBycode(any())).thenReturn(Optional.ofNullable(new ClientServiceImplTest().clientList().get(0)));
         when(repository.save(any())).thenReturn(notesList().get(0));
 
         assertNotNull(service.alterNote(notesList().get(0)));
