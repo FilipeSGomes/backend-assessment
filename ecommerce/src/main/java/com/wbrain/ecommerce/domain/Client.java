@@ -22,7 +22,6 @@ public class Client {
     @JsonProperty(value = "seu_codigo")
     private Integer id;
 
-
     @JsonProperty(value = "nome_da_pessoa")
     private String nome;
 
