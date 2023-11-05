@@ -17,8 +17,8 @@ import java.util.Optional;
 
 @Service
 public class NoteServiceImpl implements NoteService {
-    private static final String NOT_FOUND_NOTE = "Note not found";
-    private static final String NOT_FOUND_NOTE_CLIENT = "Error updown Note, Client not found";
+    static final String NOT_FOUND_NOTE = "Note not found";
+    static final String NOT_FOUND_NOTE_CLIENT = "Error updown Note, Client not found";
 
     @Autowired
     NotesRepository repository;

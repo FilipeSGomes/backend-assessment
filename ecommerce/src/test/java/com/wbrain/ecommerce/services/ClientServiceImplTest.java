@@ -13,8 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -62,7 +61,6 @@ public class ClientServiceImplTest {
         verify(repository, times(1)).findById(any());
     }
 
-
     @Test
     public void deleteShouldClientByIdSucess() {
         when(repository.findById(any())).thenReturn(Optional.ofNullable(clientList().get(0)));
@@ -71,6 +69,15 @@ public class ClientServiceImplTest {
 
         verify(repository, times(1)).findById(any());
         verify(repository, times(1)).deleteById(any());
+    }
+
+    @Test
+    public void deleteShouldClientByIdNotSucess() {
+        when(repository.findById(any())).thenReturn(null);
+
+        assertThrows(RuntimeException.class, () -> service.deleteClientBycode(1));
+
+        verify(repository, times(1)).findById(any());
     }
 
     public List<Client> clientList() {

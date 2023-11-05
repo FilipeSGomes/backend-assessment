@@ -40,9 +40,9 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public ReportMonthResponse reportNotesByMonth(LocalDate start, LocalDate end) {
-        List<Notes> notes = noteService.findAllNotesByDataBetween(start,end);
-        if(notes.isEmpty()){
-            return null;
+        List<Notes> notes = noteService.findAllNotesByDataBetween(start, end);
+        if (notes.isEmpty()) {
+            throw new RuntimeException(NoteServiceImpl.NOT_FOUND_NOTE);
         }
         return ReportMonthResponse.builder()
                 .month(start.getMonth().toString())
