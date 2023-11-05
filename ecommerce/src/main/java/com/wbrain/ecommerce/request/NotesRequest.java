@@ -12,9 +12,7 @@ import java.time.LocalDate;
 public class NotesRequest {
 
     private LocalDate data;
-
     private BigDecimal valor;
-
     @JsonProperty("cliente")
     private Integer idClient;
 }
